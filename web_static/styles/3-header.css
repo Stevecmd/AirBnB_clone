@@ -9,6 +9,6 @@ header .logo {
     background-image: url('../images/logo.png');
     background-repeat: no-repeat;
     background-size: contain;
-    height: 60px;
-    width: 142px;
+    height: 70px;
+    width: 100%;
 }
