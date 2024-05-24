@@ -113,3 +113,64 @@ This is the first instalment of the AirBnB project in collaboration with Steve.
 - All your modules should have a documentation (`python3 -c 'print(__import__("my_module").__doc__)'`)
 - All your classes should have a documentation (`python3 -c 'print(__import__("my_module").MyClass.__doc__)'`)
 - All your functions (inside and outside a class) should have a documentation (`python3 -c 'print(__import__("my_module").my_function.__doc__)`' and `python3 -c 'print(__import__("my_module").MyClass.my_function.__doc__)'`)
+
+## W3C validator
+[W3C validator for Holberton School](https://github.com/alx-tools/W3C-Validator)
+
+Sample use:
+
+Quickstart
+
+Clone this repo: 
+`
+git clone https://github.com/holbertonschool/W3C-Validator.git`
+
+> Run the validator command from within
+
+>> Single file:
+
+```sh
+./w3c_validator.py index.html
+
+./w3c_validator.py css/styles.css
+```
+
+>> Multiple files:
+
+```sh
+./w3c_validator.py index.html article.html css/styles.css
+```
+
+All errors are printed in STDERR; `Exit status = # of errors (0 on success)`
+
+
+Running the W3C validator:
+```sh
+root@356e29ffef03:/# ls
+AirBnB_clone
+```
+Assuming the folder structure below:
+
+```sh
+root@356e29ffef03:/AirBnB_clone# cd web_static/
+root@356e29ffef03:/AirBnB_clone/web_static# ls
+0-index.html  1-index.html  2-index.html  3-index.html  images  styles
+
+```
+Run the following command:
+
+```sh
+root@356e29ffef03:/AirBnB_clone# ../W3C-Validator/w3c_validator.py web_static/0-index.html
+'web_static/0-index.html' => OK
+
+```
+
+To check all the html files at once:
+
+```sh
+root@356e29ffef03:/AirBnB_clone# ../W3C-Validator/w3c_validator.py web_static/*.html
+'web_static/0-index.html' => OK
+'web_static/1-index.html' => OK
+'web_static/2-index.html' => OK
+'web_static/3-index.html' => OK
+```
