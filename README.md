@@ -179,3 +179,22 @@ root@356e29ffef03:/AirBnB_clone$ ../W3C-Validator/w3c_validator.py web_static/*.
 'web_static/7-index.html' => OK
 'web_static/8-index.html' => OK
 ```
+
+Check the css files as shown below:
+```sh
+
+AirBnB_clone$ ../W3C-Validator/w3c_validator.py web_static/styles/*.css
+'web_static/styles/2-common.css' => OK
+'web_static/styles/2-footer.css' => OK
+'web_static/styles/2-header.css' => OK
+'web_static/styles/3-common.css' => OK
+'web_static/styles/3-footer.css' => OK
+'web_static/styles/3-header.css' => OK
+'web_static/styles/4-common.css' => OK
+'web_static/styles/4-filters.css' => OK
+'web_static/styles/5-filters.css' => OK
+'web_static/styles/6-filters.css' => OK
+'web_static/styles/7-places.css' => OK
+'web_static/styles/8-places.css' => OK
+
+```
