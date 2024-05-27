@@ -168,9 +168,14 @@ root@356e29ffef03:/AirBnB_clone# ../W3C-Validator/w3c_validator.py web_static/0-
 To check all the html files at once:
 
 ```sh
-root@356e29ffef03:/AirBnB_clone# ../W3C-Validator/w3c_validator.py web_static/*.html
+root@356e29ffef03:/AirBnB_clone$ ../W3C-Validator/w3c_validator.py web_static/*.html
+'web_static/4-index.html' => Section lacks heading. Consider using “h2”-“h6” elements to add identifying headings to all sections, or else use a “div” element instead for any cases where no heading is needed.
 'web_static/0-index.html' => OK
 'web_static/1-index.html' => OK
 'web_static/2-index.html' => OK
 'web_static/3-index.html' => OK
+'web_static/5-index.html' => OK
+'web_static/6-index.html' => OK
+'web_static/7-index.html' => OK
+'web_static/8-index.html' => OK
 ```
