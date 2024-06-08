@@ -14,7 +14,6 @@ import models
 class BaseModel:
     """Represents the "base" for all other classes."""
 
-    # kwargs is a dictionary
     def __init__(self, *args, **kwargs):
         """
         Initialize.
@@ -26,13 +25,11 @@ class BaseModel:
             created_at: Date of object creation
             updated_at: Date of object change
         """
-        # tform = "%Y-%m-%dT%H:%M:%S.%f"
-
         if kwargs:
             # Create from dictionary, Loop dictionary key and values
             for key, value in kwargs.items():
                 # Set object attributes dynamically using setattr function
-                if (key == "__class__"):
+                if key == "__class__":
                     continue
 
                 # Convert isoformat string date to datetime object
@@ -65,19 +62,30 @@ class BaseModel:
         the instance in the desired order.
         """
         ordered_dict = OrderedDict()
-        if hasattr(self, 'my_number'):
-            ordered_dict["my_number"] = self.my_number
-        if hasattr(self, 'name'):
-            ordered_dict["name"] = self.name
+        ordered_dict["my_number"] = getattr(self, 'my_number', None)
+        ordered_dict["name"] = getattr(self, 'name', None)
         ordered_dict["__class__"] = self.__class__.__name__
         ordered_dict["updated_at"] = self.updated_at.isoformat()
         ordered_dict["id"] = self.id
         ordered_dict["created_at"] = self.created_at.isoformat()
 
+
         # Return as a regular dictionary
         return dict(ordered_dict)
 
     def __str__(self):
-        """Return the printable representation of model."""
-        return "[{}] ({}) {}" \
-            .format(self.__class__.__name__, self.id, self.__dict__)
+        """
+        Return the printable representation of the model
+        with attributes in the specified order.
+        """
+        my_number = getattr(self, 'my_number', None)
+        name = getattr(self, 'name', None)
+        updated_at = repr(self.updated_at)
+        created_at = repr(self.created_at)
+
+        return (f"[{self.__class__.__name__}] ({self.id}) {{"
+                f"'my_number': {my_number}, "
+                f"'name': '{name}', "
+                f"'updated_at': {updated_at}, "
+                f"'id': '{self.id}', "
+                f"'created_at': {created_at}}}")
