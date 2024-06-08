@@ -69,7 +69,6 @@ class BaseModel:
         ordered_dict["id"] = self.id
         ordered_dict["created_at"] = self.created_at.isoformat()
 
-
         # Return as a regular dictionary
         return dict(ordered_dict)
 
