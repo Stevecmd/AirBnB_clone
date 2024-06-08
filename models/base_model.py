@@ -7,6 +7,7 @@ Defines a base model class.
 # Imports
 from datetime import datetime
 from uuid import uuid4
+from collections import OrderedDict
 import models
 
 
@@ -58,16 +59,23 @@ class BaseModel:
 
     def to_dict(self):
         """
-        Return a dictionary.
+        Return an OrderedDict.
 
-            Dictionary contains all keys/values of __dict__ of
-            the instance
+        OrderedDict contains all keys/values of __dict__ of
+        the instance in the desired order.
         """
-        dictionary = self.__dict__.copy()
-        dictionary["created_at"] = self.created_at.isoformat()
-        dictionary["updated_at"] = self.updated_at.isoformat()
-        dictionary["__class__"] = self.__class__.__name__
-        return dictionary
+        ordered_dict = OrderedDict()
+        if hasattr(self, 'my_number'):
+            ordered_dict["my_number"] = self.my_number
+        if hasattr(self, 'name'):
+            ordered_dict["name"] = self.name
+        ordered_dict["__class__"] = self.__class__.__name__
+        ordered_dict["updated_at"] = self.updated_at.isoformat()
+        ordered_dict["id"] = self.id
+        ordered_dict["created_at"] = self.created_at.isoformat()
+
+        # Return as a regular dictionary
+        return dict(ordered_dict)
 
     def __str__(self):
         """Return the printable representation of model."""
