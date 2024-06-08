@@ -162,7 +162,7 @@ class HBNBCommand(cmd.Cmd):
         """Update function."""
         args = args.split()
         if len(args) < 4:
-            print("** attribute name missing **")
+            print("** value missing **")
             return
         class_name = args[0]
         instance_id = args[1]
